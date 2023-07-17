@@ -1,0 +1,42 @@
+<form [formGroup]="signupForm" (ngSubmit)="formSubmit()">
+                
+    <h2 class="title">Regístrate</h2>
+
+
+    <table class="example-full-width" cellspacing="0">
+        <tr>
+            <td>
+                <mat-form-field appearance="fill">
+                    <mat-label>FullName</mat-label>
+                    <input matInput type="text" required formControlName="fullname">
+                    <mat-icon matPrefix>
+                        <fa-icon [icon]="faUser"></fa-icon>
+                    </mat-icon>  
+                    <mat-error *ngIf="fullname?.errors">{{ getErrorMessageRequired() }}</mat-error>
+                </mat-form-field>
+            </td>
+            <td>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" required formControlName="email">
+                    <mat-icon matPrefix>
+                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                    </mat-icon>  
+                    <mat-error *ngIf="email?.errors">{{ getErrorMessageEmail() }}</mat-error>
+                </mat-form-field>
+            </td>
+        </tr>
+    </table>     
+
+    <mat-form-field class="mat-form-field-full" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" required formControlName="password">
+        <mat-icon matPrefix>
+            <fa-icon [icon]="faLock"></fa-icon>
+        </mat-icon>         
+        <mat-error *ngIf="password?.errors">{{ getErrorMessageRequired() }}</mat-error>
+    </mat-form-field>
+
+    <button class="btn">Crear Cuenta</button>
+    
+</form>  

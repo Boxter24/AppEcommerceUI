@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="left">
+        <div class="title">Shop</div>
+        <div class="links">
+            <div class="box">
+                <div class="subtitle">Contact Us</div>
+                <div class="link">0414-0414589</div>
+                <div class="link">0414-0414589</div>
+            </div>
+
+            <div class="box">
+                <div class="subtitle">Follow Us</div>
+                <div class="link">
+                    Facebook
+                </div>
+                <div class="link"></div>
+            </div>
+
+            <div class="box">
+                <div class="subtitle">Join Us</div>
+                <form [formGroup]="form">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput formControlName="email" placeholder="Email" required>
+                        <!-- <mat-error *ngIf="email.hasError">{{getErrorMessage()}}</mat-error> -->
+                    </mat-form-field>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="subtitle">Find Us</div>
+    </div>
+</div>

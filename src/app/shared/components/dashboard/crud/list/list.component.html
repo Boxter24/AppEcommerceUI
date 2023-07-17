@@ -1,0 +1,63 @@
+<div class="contenedor">
+    <div class="herramientas">
+        <mat-form-field>
+            <mat-label>Find...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Find {{singular}}..." #input id="filter">
+        </mat-form-field>
+        
+        <button mat-raised-button class="crear" color="primary" (click)="openDialogCreate('Create')"><fa-icon [icon]="faPlus"></fa-icon> Create {{ singular }}</button>    
+        <button mat-fab class="crear-mobile" color="primary" (click)="openDialogCreate('Create')"><fa-icon [icon]="faPlus"></fa-icon></button>    
+    </div>
+    
+    <div class="mat-elevation-z8 contenedor-table">
+        <table mat-table [dataSource]="dataSource" matSort id="table">
+            <!-- <ng-template #matTable>
+            </ng-template> -->
+            <!-- Implicit Column -->
+            <ng-container matColumnDef="id">
+                <th class="id" mat-header-cell *matHeaderCellDef> ID </th>
+                <td class="id" mat-cell *matCellDef="let i = index;"><span class="mobile-label">ID:</span> {{i + 1}} </td>
+            </ng-container>
+
+            <ng-container *ngFor="let item of displayedColumns">
+                <ng-container [matColumnDef]="item" *ngIf="item != 'id' && item != 'actions'">
+                    <th class="cabecera text-center" mat-header-cell *matHeaderCellDef [id]="item"> {{ item }} </th>
+                    <td class="celda text-center" mat-cell *matCellDef="let row">  
+                        <span class="mobile-label">{{ item }}:</span> 
+                        <span *ngIf="item == 'active'; else elseComponent">
+                            <span *ngIf="row.active == true; else inactive"><fa-icon [icon]="faEye" matTooltip="Active"></fa-icon></span>
+                            <ng-template #inactive><fa-icon [icon]="faEyeSlash" matTooltip="Inactive"></fa-icon></ng-template>
+                        </span> 
+                        <ng-template #elseComponent>{{ this.findData(row, item) }}</ng-template>
+                    </td>
+                </ng-container>
+            </ng-container>
+
+            <!-- Implicit Column -->
+            <ng-container matColumnDef="actions">
+                <th class="celda-acciones text-center" mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                <td class="celda-acciones" mat-cell *matCellDef="let row">
+                    <div class="acciones">
+                        <fa-icon [icon]="faEdit" (click)="openDialogEdit('Edit',row)" class="accion-edit" matTooltip="Edit"></fa-icon>
+                        /
+                        <fa-icon [icon]="faTrash" (click)="deleteElement(row.id)" class="accion-delete" matTooltip="Delete"></fa-icon>
+                    </div>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            
+            <tr class="mat-row" *matNoDataRow>
+                <td class="celda" class="mat-cell" colspan="12">
+                    {{ this.dataSource.data.length == 0 ?  'No records exist':'There are no records for the filter:' + ' "' + input.value  + '"'}}
+                </td>
+            </tr>
+        </table>
+            
+    </div>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons
+                    aria-label="Select Elements">
+    </mat-paginator>
+</div>

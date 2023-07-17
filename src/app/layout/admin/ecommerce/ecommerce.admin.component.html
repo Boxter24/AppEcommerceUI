@@ -1,0 +1,55 @@
+<div class="tools">
+    <button mat-fab color="primary" [matMenuTriggerFor]="menu" matTooltip="New Component" matTooltipPosition="right">
+        <fa-icon class="icon-large" [icon]="faPlus"></fa-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="selectElement('navbar', false)">
+            <span>Navbar</span>
+        </button>
+        <button mat-menu-item (click)="selectElement('slider', false)">
+            <span>Slider</span>
+        </button>
+        <button mat-menu-item (click)="selectElement('carousel', false)">
+            <span>Carousel</span>
+        </button>
+        <button mat-menu-item (click)="selectElement('section', false)">
+            <span>Section</span>
+        </button>
+        <button mat-menu-item (click)="selectElement('footer', false)">
+            <span>Footer</span>
+        </button>
+    </mat-menu>
+    <button mat-raised-button (click)="updateLayout()">
+        updateLayout
+    </button>
+    <mat-slide-toggle [checked]="viewOrder" (change)="viewOrderComponents()" class="viewOrder">View Order</mat-slide-toggle>
+</div>
+<div class="container">
+    <div class="view">
+        <ng-template #container>
+    
+        </ng-template>
+    </div>
+
+    <div cdkDropList class="components" (cdkDropListDropped)="drop($event)" *ngIf="viewOrder && listComponents$ && listComponents$.length > 0">
+        <div class="component-options" *ngFor="let c of listComponents$" cdkDrag>
+            <div class="options1">
+                <fa-icon class="icon edit" [icon]="faEdit" matTooltip="Edit" matTooltipPosition="left" (click)="editComponent(c.index, c.type)"></fa-icon>
+                <fa-icon class="icon trash" [icon]="faTrash" matTooltip="Delete" matTooltipPosition="left" (click)="removeComponent(c.index)"></fa-icon>
+            </div>
+
+            <div class="options2">
+                <div class="arrow" (click)="previusComponent(c.type, c.id!, c.index)" matTooltip="Previus">
+                    <fa-icon [icon]="faArrowLeft"></fa-icon>
+                </div>
+                <div class="span">
+                    {{ c.type + c.id }}
+                </div>
+
+                <div class="arrow" (click)="nextComponent(c.type, c.id!, c.index)" matTooltip="Next">
+                    <fa-icon [icon]="faArrowRight"></fa-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

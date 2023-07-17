@@ -1,0 +1,62 @@
+<div class="dashboard">
+    <!--  -->
+    <div class="navside" [ngClass]="{'close-navside': !openNavside}">
+        <div class="data-user">
+            <span (click)="open()" class="button button-navside">
+                <fa-icon [icon]="faBars"></fa-icon>
+            </span>
+            <div class="data close">
+                <p class="name">User</p>
+                <div class="email">user@gmail.com</div>
+            </div>
+            <img src="../../../../assets/images/user-default.png" alt="user-image" class="user-image close">
+        </div>
+        <ul class="links">            
+            <li>
+                <a routerLink="/dashboard" class="link">
+                    <fa-icon [icon]="faHouse" class="icon-navside"></fa-icon>
+                    <span class="text-link-navside">Home</span>
+                </a>
+            </li>
+            <li class="link">
+                <fa-icon [icon]="faUser" class="icon-navside"></fa-icon>
+                <span class="text-link-navside">Profile</span>
+            </li>
+            <li>
+                <a routerLink="list/user" class="link">
+                    <fa-icon [icon]="faUsers" class="icon-navside"></fa-icon>
+                    <span class="text-link-navside">Users</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="list/category" class="link">
+                    <fa-icon [icon]="faLayerGroup" class="icon-navside"></fa-icon>
+                    <span class="text-link-navside">Category</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="list/product" class="link">
+                    <fa-icon [icon]="faBoxes" class="icon-navside"></fa-icon>
+                    <span class="text-link-navside">Products</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="ecommerce/edit" class="link">
+                    <fa-icon [icon]="faEdit" class="icon-navside"></fa-icon>
+                    <span class="text-link-navside">Ecommerce</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="header">
+            <span (click)="open()" class="button">
+                <fa-icon [icon]="faBars"></fa-icon>
+            </span>
+        </div>
+        <div class="body">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="footer">Footer</div>
+    </div>
+</div>

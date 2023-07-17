@@ -1,0 +1,28 @@
+<div class="container">
+    <ng-container *ngIf="dataList.length > 0; else elseTemplate">
+        <div class="text">
+            <div class="title" *ngIf=" dataList[0]">
+                {{ dataList[0].data }}
+            </div>
+            <span *ngIf=" dataList[1]">
+                {{ dataList[1].data }}
+            </span>
+        </div>
+        <div class="container-img" *ngIf="dataList[2]">
+            <span *ngIf="urlImg == ''; else image">
+                <app-loader1></app-loader1>
+            </span>
+            <ng-template #image>
+                <img loading="lazy" [src]="urlImg" alt="section">
+            </ng-template>
+        </div>
+    </ng-container>
+    <ng-template #elseTemplate>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <div class="container-img">
+            <img src="../../../../../assets/images/section.png" alt="section">
+        </div>
+    </ng-template>
+</div>

@@ -1,0 +1,82 @@
+<div class="container">
+    <ng-container *ngIf="dataList.length > 0; else elseTemplate">
+        <div class="title-section" *ngIf=" dataList[0]">
+            {{ dataList[0].data }}
+        </div>
+
+        <div class="container-products">
+            <ng-container *ngFor="let e of dataList; let i = index" class="link">
+                <ng-container *ngIf="i > 0">
+                    <div class="card">
+
+                        <img loading="lazy" [src]="urlImages[i-1]" alt="section">
+
+                        <div class="footer-card">
+                            <div class="left">
+                                <div class="title">
+                                    Lorem Ipsum
+                                </div>
+                                <!-- <div class="description">
+                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                                </div> -->
+                            </div>
+                            <div class="right">
+                                <div class="price">
+                                    25$
+                                </div>
+                                <div class="discount"></div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+
+    <ng-template #elseTemplate>
+        <div class="title-section">
+            New Products
+        </div>
+        
+        <div class="container-products">
+            <div class="card">
+                <img src="../../../../../assets/images/product1.jpg" alt="product1">
+                <div class="footer-card">
+                    <div class="left">
+                        <div class="title">
+                            Lorem Ipsum
+                        </div>
+                        <div class="description">
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="price">
+                            25$
+                        </div>
+                        <div class="discount"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="../../../../../assets/images/product2.jpg" alt="product2">
+                <div class="footer-card">
+                    <div class="left">
+                        <div class="title">
+                            Lorem Ipsum
+                        </div>
+                        <div class="description">
+                            Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="price">
+                            25$
+                        </div>
+                        <div class="discount"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

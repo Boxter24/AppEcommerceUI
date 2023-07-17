@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ecommerce-ab142": {
+      "hosting": {
+        "EcommerceUI": [
+          "ecommerce-ab142"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecommerce-ab142"
+  }
+}

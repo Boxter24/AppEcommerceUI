@@ -1,0 +1,141 @@
+.container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    margin-top: 20px;
+}
+
+.tools {
+  display: flex;
+  justify-content: space-between;
+}
+
+.view{
+  width: 80%;
+  border: 1px solid black;
+}
+
+.components{
+  width: 20%;
+  padding-left: 10px;
+}
+
+.component-options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.options1{
+  width: 15%;
+  display: grid;
+  gap: 3px;
+  place-items: center;
+}
+
+.icon-large{
+  font-size: x-large;
+}
+
+.icon{
+  cursor: pointer;
+}
+
+.edit{
+  color: rgb(41, 41, 138);
+  padding-bottom: 2px;
+}
+
+.trash{
+  color: #cd3e3d;
+}
+
+.options2{
+  width: 85%;
+  height: 70px;
+  background-color: #bac1c0;
+  margin-left: auto;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: small;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.arrow{
+  margin: 2px;
+  cursor: pointer;
+}
+
+.viewOrder{
+  display: none;
+}
+
+.components::-webkit-scrollbar {
+  width: 5px;
+  padding-left: 5px;
+}
+
+.components::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+.components::-webkit-scrollbar-thumb {
+  background: #a6a5a5; 
+  border-radius: 5px;
+}
+
+.components::-webkit-scrollbar-thumb:hover {
+  background: #6e6d6d; 
+}
+
+
+/*====== Responsive ======*/
+@media screen and (max-width: 1000px){
+  .view{
+    width: 100%;
+    max-width: 85vw;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .components{
+    width: 30%;
+    height: auto;
+    position: fixed;
+    background-color: #ffffff;
+    top: 15%;
+    bottom: 5%;
+    right: 0;
+    padding: 0;
+    border-radius: 5px;
+    border: 0.5px solid black;
+    overflow-y: scroll;
+  }
+
+  .component-options{
+    display: block;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  .options1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .options2{
+    width: 80%;
+    height: 60px;
+    border-radius: 5px;
+    font-size: xx-small;
+    margin: auto;
+  }
+  
+  .viewOrder{
+    display: block;
+  }
+}

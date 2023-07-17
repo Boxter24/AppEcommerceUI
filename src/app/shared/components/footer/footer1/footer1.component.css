@@ -1,0 +1,46 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 45%));
+    gap: 2em;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    padding: 3%;
+}
+
+.links{
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 25%));
+    gap: 4em;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.link{
+    margin-bottom: 10px;
+}
+
+.title{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.subtitle{
+    font-size: x-large;
+    font-weight: bolder;
+    margin-bottom: 20px;
+}
+
+.right{
+    padding-left: 20px;
+}
+
+
+:host::ng-deep {
+    .mat-form-field .mat-form-field-flex{
+        background-color: white!important; 
+    }
+}
+

@@ -1,0 +1,83 @@
+<div class="container">
+    <span (click)="edit ? '':openNavside()" class="button button-navside">
+        <fa-icon [icon]="faBars"></fa-icon>
+    </span>
+    <ng-container *ngIf="dataList.length > 0; else elseTemplate">
+        <div class="left" [ngClass]="{ 'open-navside': open, 'close-navside': !open }">
+            <div class="links-responsive">
+                <span (click)="openNavside()" class="button button-navside">
+                    <fa-icon [icon]="faWindowClose"></fa-icon>
+                </span>
+                <ul class="links">
+                    <ng-container *ngIf="edit; else elseTemplate">
+                        <ng-container *ngFor="let e of dataList; let i = index" class="link">
+                            <span class="link" *ngIf="i > 0">
+                                {{ e.data }}
+                            </span>
+                        </ng-container>
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <ng-container *ngFor="let e of dataList; let i = index" class="link">
+                            <li class="link" *ngIf="i > 0">
+                                {{ e.data }}
+                            </li>
+                        </ng-container>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+
+        <div class="title-logo">
+            {{ dataList[0].data }}
+        </div>
+    </ng-container>
+
+    <ng-template #elseTemplate>
+        <div class="left" [ngClass]="{ 'open-navside': open, 'close-navside': !open }">
+            <div class="links-responsive">
+                <span (click)="openNavside()" class="button button-navside">
+                    <fa-icon [icon]="faWindowClose"></fa-icon>
+                </span>
+                <ul class="links">
+                    <ng-container *ngIf="edit; else elseTemplate">
+                        <span class="link">Home</span>
+                        <span class="link">Products</span>
+                        <span class="link">About Us</span>
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <li class="link">Home</li>
+                        <li class="link">Products</li>
+                        <li class="link">About Us</li>
+                    </ng-template>
+                </ul>
+            </div>
+        </div>
+
+        <div class="title-logo">
+            SHOP
+        </div>
+    </ng-template>
+
+    <div class="right">
+        <ul class="links">
+            <ng-container *ngIf="edit; else elseTemplate1">
+                <span class="link">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                </span>
+    
+                <span class="link">
+                    <fa-icon [icon]="faShoppingBag"></fa-icon>
+                </span>
+            </ng-container>
+            <ng-template #elseTemplate1>
+                <a routerLink="/login" class="link">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                </a>
+    
+                <a routerLink="/register" class="link">
+                    <fa-icon [icon]="faShoppingBag"></fa-icon>
+                </a>
+            </ng-template>
+        </ul>
+    </div>
+</div>
